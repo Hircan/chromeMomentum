@@ -2,12 +2,21 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
+const TODOS_KEY = "todos";
+
+//toDo 저장할 array
+let toDos = [];
+
+function saveToDos() {
+  localStorage.setItem("todos", JSON.stringify(toDos));
+}
+
 function handleToDoSubmit(event) {
   event.preventDefault();
   const newTodo = toDoInput.value;
-
   toDoInput.value = "";
-
+  toDos.push(newTodo);
+  saveToDos();
   paintTodo(newTodo);
 }
 function deleteToDo(event) {
@@ -27,3 +36,11 @@ function paintTodo(newTodo) {
   toDoList.appendChild(li);
 }
 toDoForm.addEventListener("submit", handleToDoSubmit);
+JSON.stringify;
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+if (savedToDos !== null) {
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintTodo);
+}
