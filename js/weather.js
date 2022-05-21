@@ -1,5 +1,4 @@
-const API_KEY = "c57e108f24cc66cf41312fc6e884bb52";
-
+import API_KEY from "./apikey.js";
 function onGeoOK(position) {
   const lat = position.coords.latitude; // 지역
   const lng = position.coords.longitude; // 경도

@@ -1,6 +1,11 @@
-body{
-    background-color: beige;
+body {
+  background-color: beige;
 }
-.h133{
-    background-color: aqua;
+.h133 {
+  background-color: aqua;
+}
+
+span.special {
+  color: orange;
+  font-weight: bold;
 }
